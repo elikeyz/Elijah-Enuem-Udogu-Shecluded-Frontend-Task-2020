@@ -1,0 +1,16 @@
+.landing-container {
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1, p {
+        text-align: center;
+    }
+}
+
+.landing-footer {
+    display: flex;
+    justify-content: center;
+}

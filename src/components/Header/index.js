@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Header() {
     return (
-        <Navbar bg="dark" variant="dark" expand="sm">
+        <Navbar collapseOnSelect bg="dark" variant="dark" expand="sm">
             <Link to="/">
                 <Navbar.Brand>Frontend Task</Navbar.Brand>
             </Link>

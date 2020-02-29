@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
+import Toast from 'react-bootstrap/Toast';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getLotr } from '../../store/actions';
@@ -66,10 +68,31 @@ class Lotr extends Component {
                         {this.state.highestPageItem >= this.props.characters.length && (<Pagination.Next className="ml-2" disabled />)}
                     </Pagination>
                     <p>Showing {this.state.lowestPageItem} - {this.state.highestPageItem} of {this.props.characters.length} results</p>
+                    {this.props.isLoading && (<>
+                        <Spinner animation="grow" variant="light" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>
+                        <Spinner animation="grow" variant="light" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>
+                        <Spinner animation="grow" variant="light" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>
+                    </>)}
+                    {
+                        this.props.error && (
+                        <Toast>
+                        <Toast.Header>
+                            <strong>Error</strong>
+                        </Toast.Header>
+                        <Toast.Body>{this.props.error}</Toast.Body>
+                        </Toast>
+                        )
+                    }
                     <Row>
                         {this.props.characters.slice(this.state.lowestPageItem - 1, this.state.highestPageItem).map(character => (
-                            <Col md={4} sm={6} xs={12} className="mb-3">
-                                <LotrCard key={character._id} character={character} />
+                            <Col key={character._id} md={4} sm={6} xs={12} className="mb-3">
+                                <LotrCard character={character} />
                             </Col>
                         ))}
                     </Row>

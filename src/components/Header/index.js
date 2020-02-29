@@ -5,18 +5,20 @@ import { Link } from 'react-router-dom';
 
 function Header() {
     return (
-        <Navbar collapseOnSelect bg="dark" variant="dark" expand="sm">
-            <Link to="/">
-                <Navbar.Brand>Frontend Task</Navbar.Brand>
-            </Link>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
-                <Nav className="mr-sm-2">
-                    <Link className="nav-link" to="/cats">Cats</Link>
-                    <Link className="nav-link" to="/lotr">Lord Of The Rings</Link>
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
+        <header>
+            <Navbar collapseOnSelect bg="dark" variant="dark" expand="sm">
+                <Link to="/">
+                    <Navbar.Brand>Frontend Task</Navbar.Brand>
+                </Link>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
+                    <Nav className="mr-sm-2">
+                        <Link className="nav-link" to="/cats">Cats</Link>
+                        <Link className="nav-link" to="/lotr">Lord Of The Rings</Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        </header>
     );
 }
 
